@@ -1,0 +1,20 @@
+# Design direction — Sanjana Chawla projects-page recreation
+
+## Ground truth
+The user's reference page, https://sanjanachawla.framer.website/projects, is the visual and content reference. The user has requested restoring the earlier one-by-one gallery layout while showing only six artists. Use the first six source projects in their original order—Arijit Singh, Tyla, Honey Singh, Diljit Dosanjh, Coldplay, and HUGEL. Preserve their source photography, names, captions, and original project links. The document title is “Sanjana Chawla -Photography Portfolio”; the visible wordmark is SANJANA CHAWLA.
+
+## Design dimensions
+- **Movement:** minimal contemporary editorial photography portfolio; monochrome, gallery-like, deliberately unadorned.
+- **Core principles:** photography dominates; preserve each selected image's original aspect ratio and sequence; keep text secondary; use generous negative space; no card chrome, borders, shadows, gradients, or artificial color treatments.
+- **Color philosophy:** near-pure black page/background (#000) and white text (#fff), with subdued gray for secondary metadata. Let the source photographs supply all other color.
+- **Layout paradigm:** compact horizontal navigation near the page top; a tall opening field with a centered large headline and small centered uppercase deck; then six featured image cards in one centered vertical column, with captions just below images and generous spacing between projects. Preserve this earlier layout rather than the temporary two-card mosaic. Add the source's centered SVG mark in the spacious transition after the gallery, then the compact black footer.
+- **Signature elements:** “Work we’re proud of” in oversized Switzer; quiet all-caps copy; six full-width concert/editorial photographs; concise Sanjana Chawla wordmark; centered end mark; compact two-row footer. The footer's first row has INSTAGRAM, INDIA, and “Do you like / What you see?” set in white Switzer medium at about 28px/28px. Its lower row has “2025 ® Sanjana chawla” at left and a white pill-shaped “Let's connect” link at right.
+- **Interaction philosophy:** semantic links remain visually understated; navigation points to the projects route or the source's original about/contact destinations; each selected image links to its original source project path; Instagram and “Let's connect” point to the source Instagram account. Keyboard focus must remain visible without disrupting the look.
+- **Animation:** no ornamental motion; keep the page readable with reduced motion enabled.
+- **Typography system:** use the same Switzer family as the source, with the observed 500 and 700 weights, and a system sans-serif fallback. The desktop title should scale from about 90px at a 1280px viewport to a smaller responsive size on mobile; navigation and captions remain compact. Preserve sentence casing for the title and uppercase treatment for the supporting deck, navigation, and footer metadata.
+- **Brand essence and voice:** quiet, direct, confident visual portfolio; no added marketing language beyond the source copy.
+- **Wordmark/logo:** public site uses the text wordmark SANJANA CHAWLA. The existing project mark and favicon use a small flat camera-lens/aperture symbol in the black/white visual language; do not add a new visible logo to the portfolio composition.
+- **Signature brand color:** black, with white as the sole UI foreground.
+
+## Implementation boundaries
+The requested page is a static portfolio requiring no authentication, persistent data, backend, or database. The user requested six source projects rather than the complete 30-project list; only the first six are included. Use their original project photos and exact Switzer font files; do not substitute stock images. The requested scope is `/projects` and a convenient root route to the same page; do not recreate unprovided pages.
