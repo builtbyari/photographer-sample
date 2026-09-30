@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "path": "/", "title": "Sanjana Chawla — Photography Portfolio" },
+    { "path": "/projects", "title": "Selected Projects — Sanjana Chawla" }
+  ]
+}
