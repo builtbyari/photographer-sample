@@ -1,15 +1,18 @@
 import { eq } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { drizzle } from "drizzle-orm/netlify-db";
+import * as schema from "../db/schema.js";
+import { type InsertUser, users } from "../db/schema.js";
 import { ENV } from './_core/env';
 
-let _db: ReturnType<typeof drizzle> | null = null;
+const createDb = () => drizzle({ schema });
+
+let _db: ReturnType<typeof createDb> | null = null;
 
 // Lazily create the drizzle instance so local tooling can run without a DB.
 export async function getDb() {
-  if (!_db && process.env.DATABASE_URL) {
+  if (!_db) {
     try {
-      _db = drizzle(process.env.DATABASE_URL);
+      _db = createDb();
     } catch (error) {
       console.warn("[Database] Failed to connect:", error);
       _db = null;
@@ -67,7 +70,8 @@ export async function upsertUser(user: InsertUser): Promise<void> {
       updateSet.lastSignedIn = new Date();
     }
 
-    await db.insert(users).values(values).onDuplicateKeyUpdate({
+    await db.insert(users).values(values).onConflictDoUpdate({
+      target: users.openId,
       set: updateSet,
     });
   } catch (error) {
